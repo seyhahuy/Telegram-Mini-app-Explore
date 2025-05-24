@@ -2,11 +2,9 @@
 import { Telegraf } from 'telegraf';
 import { BOT_TOKEN, WEBAPP_URL } from './configure';
 
-if (!BOT_TOKEN) {
-  throw new Error('BOT_TOKEN must be provided!');
-}
 
-const bot = new Telegraf(BOT_TOKEN);
+
+const bot = new Telegraf(`${BOT_TOKEN}`);
 
 // Basic commands
 bot.command('start', (ctx: any) => {
