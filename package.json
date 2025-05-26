@@ -10,6 +10,7 @@
     "bot:dev": "ts-node bot/index.ts"
   },
   "dependencies": {
+    "@telegram-apps/sdk": "^3.10.0",
     "@twa-dev/sdk": "^8.0.2",
     "dotenv": "^16.5.0",
     "firebase": "^11.7.1",

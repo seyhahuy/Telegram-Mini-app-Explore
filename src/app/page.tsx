@@ -1,27 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-// import { usePathname,useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import TelegramWebApp from "@twa-dev/sdk";
+import { useLaunchParams, useRawInitData} from '@telegram-apps/sdk-react';
 
 export default function Home() {
-  const [storedValue, setStoredValue] = useState<string | null>(null);
+  const [user, setUser] = useState<any>(null);
+  // const [initDataRaw, setInitDataRaw] = useState<any>(null);
+const launchParams=useLaunchParams()
+  const data = TelegramWebApp
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Save to localStorage
-      localStorage.setItem("groupId", "1234");
-
-      // Read from localStorage
-      const value = localStorage.getItem("groupId");
-      setStoredValue(value);
-    }
-  }, []);
+  
   return (
     <div>
       <h1>Welcome to the Telegram Mini App!</h1>
-      {storedValue && <p>Hello, {storedValue}</p>}
-      asd
+     {JSON.stringify(data)}
     </div>
   );
 }
